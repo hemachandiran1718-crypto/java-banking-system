@@ -1,0 +1,35 @@
+package com.bank.acc;
+
+public abstract class Account {
+
+    protected int tenure;
+    protected float principal;
+    protected float rateOfInterest;
+
+    public void setInterest(int age, String gender) {
+
+        if (gender.equalsIgnoreCase("Male")) {
+
+            if (age < 60) {
+                rateOfInterest = 9.8f;
+            } else {
+                rateOfInterest = 10.5f;
+            }
+
+        } else if (gender.equalsIgnoreCase("Female")) {
+
+            if (age < 58) {
+                rateOfInterest = 10.2f;
+            } else {
+                rateOfInterest = 10.8f;
+            }
+        }
+    }
+
+    public float calculateMaturityAmount(float totalPrincipleDeposited,
+                                         float maturityInterest) {
+        return totalPrincipleDeposited + maturityInterest;
+    }
+
+    public abstract float calculateInterest();
+}
